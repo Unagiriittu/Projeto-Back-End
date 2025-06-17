@@ -34,7 +34,7 @@ def token_requerido(f):
         return f(usuario, *args, **kwargs)
     return decorated
 
-@app.route("/registrar", methods=["POST"])
+@app.route("/registrar", methods=["POST"]) #@app.route é um decorador usado no framework Flask para mapear URLs para funções específicas, chamadas de funções de visualização
 def registrar():
     """Registra um novo usuário administrador ou comum."""
     data = request.get_json()
@@ -130,7 +130,7 @@ def registrar_prontuario():
     session.commit()
     return jsonify({"mensagem": "Prontuário registrado com sucesso"}), 201
 
-@app.route("/prontuarios/paciente/<int:id_paciente>", methods=["GET"])
+@app.route("/prontuarios/paciente/<int:id_paciente>", methods=["GET"])z
 def listar_prontuarios_por_paciente(id_paciente):
     """Lista todos os prontuários vinculados às consultas de um paciente."""
     session = Session()
